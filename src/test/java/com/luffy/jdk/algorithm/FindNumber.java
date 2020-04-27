@@ -1,15 +1,24 @@
-package jdk;
+package com.luffy.jdk.algorithm;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 
 @Slf4j
-public class Test {
+public class FindNumber {
 
-    public static void main(String[] args) {
+    /**
+     * <p>
+     *  从 n 个不重复 有序数组中快速找到缺少的数字
+     * </p>
+     * @author luffy
+     * @since 2020-04-27 18:01:34
+     */
+    @Test
+    public void test() {
         List<Integer> nums = Arrays.asList(1, 2, 4, 5, 7, 9, 10);
         int len = 10;
 
@@ -23,7 +32,7 @@ public class Test {
 
         for (int i = 1; i < len; i++) {
             if (!bitSet.get(i)) {
-                System.out.println(i);
+                log.info(i + "");
             }
         }
     }

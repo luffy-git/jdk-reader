@@ -1,4 +1,4 @@
-package proxy.common;
+package com.luffy.jdk.proxy.common;
 
 import lombok.extern.slf4j.Slf4j;
 

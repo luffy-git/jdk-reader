@@ -1,4 +1,4 @@
-package proxy.jdk.dynamic_proxy;
+package com.luffy.jdk.proxy.jdk.dynamic_proxy;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +24,7 @@ public class DynamicProxyFactory<T> {
 
     /**
      * <p>
-     *  返回对目标对象(target)代理后的对象(proxy)
+     *  返回对目标对象(target)代理后的对象(jdk.proxy)
      * </p>
      * @author luffy
      * @since 2020-04-27 15:57:42

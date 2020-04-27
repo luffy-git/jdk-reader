@@ -1,8 +1,8 @@
-package proxy.cglib;
+package com.luffy.jdk.proxy.cglib;
 
+import com.luffy.jdk.proxy.common.UserDao;
+import com.luffy.jdk.proxy.common.UserMapper;
 import org.junit.jupiter.api.Test;
-import proxy.common.UserDao;
-import proxy.common.UserMapper;
 
 /**
  * <p>

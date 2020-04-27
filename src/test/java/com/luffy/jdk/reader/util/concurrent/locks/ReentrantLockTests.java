@@ -1,4 +1,4 @@
-package jdk.reader.util.concurrent.locks;
+package com.luffy.jdk.reader.util.concurrent.locks;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

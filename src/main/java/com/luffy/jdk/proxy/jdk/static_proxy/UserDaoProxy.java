@@ -1,7 +1,7 @@
-package proxy.jdk.static_proxy;
+package com.luffy.jdk.proxy.jdk.static_proxy;
 
+import com.luffy.jdk.proxy.common.UserDao;
 import lombok.extern.slf4j.Slf4j;
-import proxy.common.UserDao;
 
 /**
  * <p>

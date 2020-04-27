@@ -1,8 +1,11 @@
-package proxy.jdk.dynamic_proxy;
+package com.luffy.jdk.proxy.jdk.dynamic_proxy;
 
+import com.luffy.jdk.proxy.common.UserDao;
+import com.luffy.jdk.proxy.common.UserMapper;
+import com.luffy.jdk.proxy.jdk.dynamic_proxy.DynamicProxyFactory;
+import com.luffy.jdk.proxy.jdk.dynamic_proxy.DynamicProxyHandler;
 import org.junit.jupiter.api.Test;
-import proxy.common.UserDao;
-import proxy.common.UserMapper;
+
 
 /**
  * <p>
@@ -18,7 +21,7 @@ public class DynamicProxyTest {
     @Test
     public void dynamicProxy1(){
         /*
-            UserMapper dao = new DynamicProxyHandler<>(new UserMapper()).proxy();
+            UserMapper dao = new DynamicProxyHandler<>(new UserMapper()).jdk.proxy();
             使用jdk生成的动态代理的前提是目标类必须有实现的接口
             代理接口对象.不能直接使用目标对象获取
          */
@@ -29,7 +32,7 @@ public class DynamicProxyTest {
     @Test
     public void dynamicProxy2(){
         /*
-            UserMapper dao = new DynamicProxyHandler<>(new UserMapper()).proxy();
+            UserMapper dao = new DynamicProxyHandler<>(new UserMapper()).jdk.proxy();
             使用jdk生成的动态代理的前提是目标类必须有实现的接口
             代理接口对象.不能直接使用目标对象获取
          */

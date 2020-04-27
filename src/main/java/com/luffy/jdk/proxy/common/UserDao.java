@@ -1,4 +1,4 @@
-package proxy.common;
+package com.luffy.jdk.proxy.common;
 
 /**
  * <p>

@@ -1,7 +1,9 @@
-package proxy.jdk.static_proxy;
+package com.luffy.jdk.proxy.jdk.static_proxy;
 
+import com.luffy.jdk.proxy.common.UserMapper;
+import com.luffy.jdk.proxy.jdk.static_proxy.UserDaoProxy;
 import org.junit.jupiter.api.Test;
-import proxy.common.UserMapper;
+
 
 /**
  * <p>

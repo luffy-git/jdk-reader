@@ -1,8 +1,15 @@
-package jdk.loop;
+package com.luffy.jdk.loop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <p>
+ *  循环相关测试用例
+ * </p>
+ * @author luffy
+ * @since 2020-04-27 18:21:05
+ */
 @Slf4j
 public class LoopTests {
 
