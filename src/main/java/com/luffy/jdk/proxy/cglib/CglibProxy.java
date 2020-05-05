@@ -1,4 +1,4 @@
-package proxy.cglib;
+package com.luffy.jdk.proxy.cglib;
 
 import lombok.extern.slf4j.Slf4j;
 import net.sf.cglib.proxy.Enhancer;
