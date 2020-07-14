@@ -60,7 +60,7 @@ public class DynamicProxyHandler<T> implements InvocationHandler {
      * the interface method's declared return type as described above,
      * a {@code ClassCastException} will be thrown by the method
      * invocation on the jdk.proxy instance.
-     * @see UndeclaredThrowableException
+     * @see InvocationTargetException,IllegalAccessException
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
