@@ -2,10 +2,9 @@ package com.luffy.jdk.proxy.jdk.dynamic_proxy;
 
 import com.luffy.jdk.proxy.common.UserDao;
 import com.luffy.jdk.proxy.common.UserMapper;
-import com.luffy.jdk.proxy.jdk.dynamic_proxy.DynamicProxyFactory;
-import com.luffy.jdk.proxy.jdk.dynamic_proxy.DynamicProxyHandler;
 import org.junit.jupiter.api.Test;
 
+import java.util.BitSet;
 
 /**
  * <p>
@@ -38,5 +37,19 @@ public class DynamicProxyTest {
          */
         UserDao dao = new DynamicProxyFactory<UserDao>(new UserMapper()).proxy();
         dao.save("luffy");
+    }
+
+    @Test
+    void testBitMap(){
+        int[] array = {1,3,9,10,20};
+        BitSet bitSet = new BitSet( array.length / 32 + 1);
+        for (int i : array) {
+            bitSet.set(i,false);
+        }
+        System.out.println(bitSet.length());
+
+        for (int i : array) {
+            System.out.println( i + "是否存在:" + bitSet.get(i));
+        }
     }
 }
