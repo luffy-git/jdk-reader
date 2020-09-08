@@ -7,9 +7,7 @@ import com.luffy.jdk.command.handler.UbuntuOSHandler;
 import java.util.Optional;
 
 /**
- * <p>
  *  硬件客户端
- * </p>
  * @author Luffy [lizm@mingtech.cn]
  * @since 2020-09-08 10:09:23
  */
@@ -31,9 +29,7 @@ public enum OS {
     };
 
     /**
-     * <p>
      *  获取对应机器类型的执行控制器
-     * </p>
      * @author Luffy [lizm@mingtech.cn]
      * @since 2020-09-08 10:03:02
      * @return com.luffy.jdk.command.OSScriptHandler
@@ -41,9 +37,7 @@ public enum OS {
     public abstract OSScriptHandler handler();
 
     /**
-     * <p>
      *  获取机器适配类型
-     * </p>
      * @author Luffy [lizm@mingtech.cn]
      * @since 2020-09-08 10:00:52
      * @param machine 机器类型

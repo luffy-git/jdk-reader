@@ -4,9 +4,7 @@ import com.luffy.jdk.command.enums.OS;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * <p>
  *  OS 脚本客户端
- * </p>
  * @author Luffy [lizm@mingtech.cn]
  * @since 2020-09-07 16:09:28
  */
@@ -27,6 +25,12 @@ public class OSScriptClient {
         }
     }
 
+    /**
+     *  加载机器类型配置
+     * @author Luffy [lizm@mingtech.cn]
+     * @since 2020-09-08 10:24:03
+     * @return java.lang.String
+     */
     private static String loadMachine() {
         // 获取系统类型
         String os = System.getProperty(OS_NAME);
@@ -43,9 +47,7 @@ public class OSScriptClient {
     }
 
     /**
-     * <p>
      *  获取系统脚本客户端控制器实例
-     * </p>
      * @author Luffy [lizm@mingtech.cn]
      * @since 2020-09-07 16:22:36
      * @return com.luffy.jdk.command.OSScriptHandler
