@@ -58,10 +58,15 @@ public class OSScriptClient {
         return HANDLER;
     }
 
-    private static String getMachine(String command) {
+    /**
+     *  执行 Linux 命令
+     * @author Luffy [lizm@mingtech.cn]
+     * @since 2020-09-08 14:18:02
+     * @param command 命令
+     * @return java.lang.String
+     */
+    public static String getMachine(String command) {
         Process p = null;
-        // git clone命令
-        String cmd = "uname -m";
         try {
             // 起子进程执行cmd命令
             ProcessBuilder pb = new ProcessBuilder(command);
