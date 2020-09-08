@@ -127,7 +127,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--这部分可有可无,加上的话则直接生成可运行jar包-->
+                    <finalName>${project.artifactId}-boot-${project.version}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
                             <mainClass>com.luffy.jdk.command.Test</mainClass>
