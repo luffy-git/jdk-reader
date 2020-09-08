@@ -27,7 +27,7 @@ public class OSScriptClient {
         // 防止多实例启动并发执行
         synchronized (OS_NAME){
             String machine = loadMachine();
-            log.info("Current OS type:{}",machine);
+            log.info("current operating system : {}",machine);
             HANDLER = OS.build(machine).handler();
         }
     }
