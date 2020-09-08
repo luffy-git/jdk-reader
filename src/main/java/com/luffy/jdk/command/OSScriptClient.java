@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  *  OS 脚本客户端
@@ -67,11 +68,16 @@ public class OSScriptClient {
      * @return java.lang.String
      */
     public static String getMachine() {
+        String machine;
         try {
-            return ProcessUtil.getInputStreamAsString(ProcessUtil.exec("uname -m").getInputStream());
+            machine = ProcessUtil.getInputStreamAsString(ProcessUtil.exec("uname -m").getInputStream());
         } catch (IOException e) {
-            log.error("获取机器设备类型异常: " + e.getMessage(),e);
+            throw new IllegalArgumentException("执行脚本获取机器设备信息异常:" + e.getMessage());
         }
-        throw new IllegalArgumentException("获取机器设备类型错误");
+        return Optional
+                .of(machine)
+                .filter(StringUtils::isNotBlank)
+                .map(String::trim)
+                .orElseThrow(() -> new IllegalArgumentException("获取机器设备类型错误"));
     }
 }
