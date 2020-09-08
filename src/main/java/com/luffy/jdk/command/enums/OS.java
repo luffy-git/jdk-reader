@@ -51,12 +51,11 @@ public enum OS {
      */
     public static OS build(String machine){
         OS os;
-        NullPointerException unknown = new NullPointerException("未匹配的机器类型:" + machine);
         try {
             os = valueOf(machine.toUpperCase());
         }catch (IllegalArgumentException e){
-            throw unknown;
+            throw new NullPointerException("未知的机器类型:" + machine);
         }
-        return Optional.of(os).orElseThrow(() -> unknown);
+        return Optional.of(os).orElseThrow(() -> new NullPointerException("未匹配的机器类型:" + machine));
     }
 }
