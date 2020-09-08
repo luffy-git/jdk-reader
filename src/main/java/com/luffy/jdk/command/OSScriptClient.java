@@ -27,6 +27,7 @@ public class OSScriptClient {
         // 防止多实例启动并发执行
         synchronized (OS_NAME){
             String machine = loadMachine();
+            log.info("Current OS type:{}",machine);
             HANDLER = OS.build(machine).handler();
         }
     }
@@ -47,7 +48,6 @@ public class OSScriptClient {
         if (!upper.startsWith(LINUX)) {
             throw new IllegalArgumentException("不支持运行的的客户端实例: " + os);
         }
-        //TODO 执行 Linux 命令行获取当前系统类型
         return getMachine();
     }
 
@@ -70,10 +70,13 @@ public class OSScriptClient {
     public static String getMachine() {
         String machine;
         try {
+            //TODO 执行 Linux 命令行获取当前系统类型
             machine = ProcessUtil.getInputStreamAsString(ProcessUtil.exec("uname -m").getInputStream());
         } catch (IOException e) {
             throw new IllegalArgumentException("执行脚本获取机器设备信息异常:" + e.getMessage());
         }
+
+        // 检查解析结果,并去掉 \n 以及空格
         return Optional
                 .of(machine)
                 .filter(StringUtils::isNotBlank)
