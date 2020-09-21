@@ -1,5 +1,8 @@
 package com.luffy.jdk.tree;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.*;
 
 /**
@@ -53,7 +56,7 @@ public final class TrieTree {
      */
     private void addAll(Collection<String> words){
         // 校验关键词列表
-        if (Objects.isNull(words) || words.isEmpty()) {
+        if (CollectionUtils.isEmpty(words)) {
             throw new NullPointerException("words set cannot be empty");
         }
         // 初始化关键词树
@@ -71,7 +74,7 @@ public final class TrieTree {
      * @param word 关键词
      */
     public void add(String word) {
-        if (Objects.isNull(word)) {
+        if (StringUtils.isBlank(word)) {
             return;
         }
 
@@ -115,7 +118,7 @@ public final class TrieTree {
      */
     public static boolean search(TrieTree tree, String word) {
         Node pNode;
-        if (Objects.isNull(word) || Objects.isNull(pNode = tree.root)) {
+        if (StringUtils.isBlank(word) || Objects.isNull(pNode = tree.root)) {
             return false;
         }
 
@@ -146,7 +149,7 @@ public final class TrieTree {
      */
     public static int treeDepth(TrieTree tree, String word) {
         Node pNode;
-        if (Objects.isNull(word) || Objects.isNull(pNode = tree.root)) {
+        if (StringUtils.isBlank(word) || Objects.isNull(pNode = tree.root)) {
             return -1;
         }
 
