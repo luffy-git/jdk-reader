@@ -57,7 +57,7 @@ public class OSScriptClient {
      * @since 2020-09-07 16:22:36
      * @return com.luffy.jdk.command.OSScriptHandler
      */
-    public static OSScriptHandler instance(){
+    public static OSScriptHandler instance() {
         return HANDLER;
     }
 
@@ -84,3 +84,5 @@ public class OSScriptClient {
                 .orElseThrow(() -> new IllegalArgumentException("获取机器设备类型错误"));
     }
 }
+
+

@@ -24,6 +24,7 @@
         <commons-codec.version>1.14</commons-codec.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <fastjson.version>1.2.73</fastjson.version>
+        <reflections.version>0.9.10</reflections.version>
     </properties>
 
     <dependencies>
@@ -32,7 +33,7 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback-classic.version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <!-- cglib -->
         <dependency>
@@ -99,6 +100,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>${commons-collections4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>${reflections.version}</version>
         </dependency>
     </dependencies>
 

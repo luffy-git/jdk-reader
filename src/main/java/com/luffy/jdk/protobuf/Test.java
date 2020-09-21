@@ -1,5 +1,7 @@
 package com.luffy.jdk.protobuf;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.Arrays;
 
 /**
@@ -15,6 +17,7 @@ public class Test {
         student.setStudentNo("2011070122");
         student.setSchoolName("BJUT");
 
+        System.out.println(JSON.toJSONString(student));
         byte[] serializerResult = ProtoBufUtil.serializer(student);
 
         System.out.println("serializer result:" + Arrays.toString(serializerResult));
