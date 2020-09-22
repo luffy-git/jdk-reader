@@ -84,7 +84,7 @@ public final class TrieTree {
         char[] chars = word.toCharArray();
         // 关键词字符个数
         int len = chars.length;
-        // 便利 word 关键词的所有字符,构造树结构
+        // 遍历 word 关键词的所有字符,构造树结构
         for (int i = 0; i < len; i++) {
 
             char c = chars[i];
