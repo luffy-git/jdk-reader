@@ -45,7 +45,7 @@ public final class TrieTree {
     private void addAll(Collection<String> words){
         // 校验关键词列表
         if (CollectionUtils.isEmpty(words)) {
-            throw new NullPointerException("words set cannot be empty");
+            throw new NullPointerException("words collection cannot be empty");
         }
         // 初始化关键词树
         words.forEach(this::add);
