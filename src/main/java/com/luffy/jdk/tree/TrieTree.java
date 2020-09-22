@@ -24,24 +24,12 @@ public final class TrieTree {
 
     /**
      * <p>
-     *  通过 Set 构造树
+     *  通过 集合 构造树
      * </p>
      * @author luffy
      * @since 2020-07-21 16:58:41
      */
-    public TrieTree(Set<String> words) {
-        this();
-        this.addAll(words);
-    }
-
-    /**
-     * <p>
-     *  通过 List 构造树
-     * </p>
-     * @author luffy
-     * @since 2020-07-21 16:58:49
-     */
-    public TrieTree(List<String> words){
+    public TrieTree(Collection<String> words) {
         this();
         this.addAll(words);
     }
