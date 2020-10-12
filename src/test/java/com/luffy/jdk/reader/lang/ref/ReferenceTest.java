@@ -69,5 +69,4 @@ public class ReferenceTest {
         log.info("strongA = {}, softB = {}, weakC = {}", strongA, softB.get(), weakC.get());
     }
 
-
 }

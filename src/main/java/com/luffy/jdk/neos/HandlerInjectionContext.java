@@ -21,7 +21,7 @@ import java.util.Set;
 @Slf4j
 public final class HandlerInjectionContext {
 
-    private static final String OS = "ARMV7L";
+    private static final String OS = "X86_64";
 
     private HandlerInjectionContext() {
 
