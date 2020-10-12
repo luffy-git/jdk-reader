@@ -3,9 +3,13 @@ package com.luffy.jdk.neos.enums;
 import java.util.Optional;
 
 /**
- * Created by Luffy on 2020/9/9
+ *  设备型号
+ * @author Luffy [lizm@mingtech.cn]
+ * @since 2020-10-12 18:08:57
  */
 public enum Machine {
+
+    /** 支持的设备型号 */
     ARMV7L,
     X86_64
     ;
