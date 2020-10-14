@@ -74,4 +74,11 @@ public class ThreadLocalTest {
         log.info(TL_INT.get().toString());
     }
 
+    @Test
+    public void dumpStack(){
+        log.info(" start ");
+        Thread.dumpStack();
+        log.info(" end ");
+    }
+
 }

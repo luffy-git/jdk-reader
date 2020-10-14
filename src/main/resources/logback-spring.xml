@@ -24,7 +24,7 @@
         <encoder>
             <pattern>
                 <!-- 设置日志输出格式 -->
-                %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %logger - %msg%n
+                11111%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level]222 [%thread] %logger - %msg%n
             </pattern>
         </encoder>
     </appender>
@@ -178,11 +178,11 @@
         <!-- 控制台输出 -->
         <appender-ref ref="CONSOLE"/>
         <!-- 不管什么包下的日志都输出文件 -->
-        <!--<appender-ref ref="ERROR"/>-->
-        <!--<appender-ref ref="INFO"/>-->
-        <!--<appender-ref ref="WARN"/>-->
-        <!--<appender-ref ref="DEBUG"/>-->
-        <!--<appender-ref ref="TRACE"/>-->
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="DEBUG"/>
+        <appender-ref ref="TRACE"/>
     </root>
 
 </configuration>

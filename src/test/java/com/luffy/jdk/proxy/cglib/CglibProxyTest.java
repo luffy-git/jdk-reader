@@ -14,13 +14,13 @@ import org.junit.jupiter.api.Test;
 public class CglibProxyTest {
 
     @Test
-    public void cglibTest1(){
+    public void cglibTest1() {
         UserMapper mapper = new CglibProxy<>(new UserMapper()).proxy();
         mapper.delete("luffy");
     }
 
     @Test
-    public void cglibTest2(){
+    public void cglibTest2() {
         UserDao dao = new CglibProxy<>(new UserMapper()).proxy();
         dao.save("luffy");
     }

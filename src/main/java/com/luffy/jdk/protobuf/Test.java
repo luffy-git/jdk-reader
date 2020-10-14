@@ -1,13 +1,13 @@
 package com.luffy.jdk.protobuf;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 
-/**
- * Created by luffy on 2020/7/19
- */
+@Slf4j
 public class Test {
+
 
     public static void main(String[] args) {
 
@@ -17,13 +17,13 @@ public class Test {
         student.setStudentNo("2011070122");
         student.setSchoolName("BJUT");
 
-        System.out.println(JSON.toJSONString(student));
+        log.info(JSON.toJSONString(student));
         byte[] serializerResult = ProtoBufUtil.serializer(student);
 
-        System.out.println("serializer result:" + Arrays.toString(serializerResult));
+        log.info("serializer result:" + Arrays.toString(serializerResult));
 
         Student deSerializerResult = ProtoBufUtil.deserializer(serializerResult,Student.class);
 
-        System.out.println("deSerializerResult:" + deSerializerResult.toString());
+        log.info("deSerializerResult:" + deSerializerResult.toString());
     }
 }

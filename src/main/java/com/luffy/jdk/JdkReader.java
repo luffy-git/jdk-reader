@@ -10,7 +10,5 @@ package com.luffy.jdk;
 public class JdkReader {
 
     public static void main(String[] args) {
-        String fullName = "lizhimin.dp";
-        System.out.println(fullName.substring(0, fullName.length() - 3));
     }
 }

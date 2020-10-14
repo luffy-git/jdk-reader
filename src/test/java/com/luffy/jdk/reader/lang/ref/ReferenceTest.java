@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -22,18 +25,21 @@ public class ReferenceTest {
 
 
 
+    List<String> list = new ArrayList<>();
 
     /**
      * <p>
      *  强引用
      *  软引用
      *  弱引用
+     *  vm prop : -XX:+HeapDumpOnOutOfMemoryError -Xms3m -Xmx3m
      * </p>
      * @author luffy
      * @since 2020-03-31 15:43:06
      */
     @Test
-    public void referenceTest(){
+    public void referenceTest() throws InterruptedException {
+        log.info("time:");
         // 强引用
         Object a = new Object();
         Object b = new Object();
@@ -58,15 +64,25 @@ public class ReferenceTest {
         log.info("strongA = {}, softB = {}, weakC = {}", strongA, softB.get(), weakC.get());
 
         log.info("Run GC...");
+        int i = 0;
+       while (true){
+           System.gc();
 
-        System.gc();
-
-        /*
+           TimeUnit.SECONDS.sleep(1);
+            /*
             仅具有软引用的对象将仅在内存不足时被清除: 用来做缓存很不错
             gc操作后将清除仅具有弱引用的对象
          */
-        log.info("After gc...");
-        log.info("strongA = {}, softB = {}, weakC = {}", strongA, softB.get(), weakC.get());
+           log.info("After gc...");
+           log.info("strongA = {}, softB = {}, weakC = {}", strongA, softB.get(), weakC.get());
+           list.add( i++ + "房间地上咖啡机辣椒粉克拉斯荆防颗粒撒娇风口浪尖按时发快啦手机副卡拉设计费克拉斯荆防颗粒的煎熬是分开了的煎熬时空裂缝房间地上咖啡机辣椒粉克拉斯荆防颗粒撒娇风口浪尖按时发快啦手机副卡拉设计费克拉斯荆防颗粒的煎熬是分开了的煎熬时空裂缝");
+       }
+
+
+    }
+
+    public String a(){
+        return "l";
     }
 
 }
