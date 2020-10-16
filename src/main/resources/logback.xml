@@ -169,12 +169,8 @@
         <appender-ref ref="CONSOLE" />
     </logger>
 
-
-
     <!-- root级别   DEBUG -->
-    <root>
-        <!-- 打印debug级别日志及以上级别日志 -->
-        <level value="${log.level}"/>
+    <root level="${log.level}">
         <!-- 控制台输出 -->
         <appender-ref ref="CONSOLE"/>
         <!-- 不管什么包下的日志都输出文件 -->
