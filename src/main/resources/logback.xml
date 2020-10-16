@@ -24,7 +24,7 @@
         <encoder>
             <pattern>
                 <!-- 设置日志输出格式 -->
-                11111%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level]222 [%thread] %logger - %msg%n
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level]222 [%thread] %logger - %msg%n
             </pattern>
         </encoder>
     </appender>
