@@ -18,7 +18,7 @@
     <property name="log.maxHistory" value="30"/>
     <property name="log.level" value="debug"/>
     <property name="log.maxSize" value="5MB"/>
-    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %logger{30}:%L - %msg%n"/>
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %logger{10}:%L - %msg%n"/>
 
     <!-- ConsoleAppender 控制台输出日志 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
