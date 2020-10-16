@@ -27,6 +27,7 @@
         <reflections.version>0.9.10</reflections.version>
         <aspectj.version>1.8.9</aspectj.version>
         <joor.version>0.9.6</joor.version>
+        <protostuff.version>1.6.0</protostuff.version>
     </properties>
 
     <dependencies>
@@ -76,16 +77,16 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.protostuff/protostuff-core -->
+        <!-- protobuff -->
         <dependency>
             <groupId>io.protostuff</groupId>
             <artifactId>protostuff-core</artifactId>
-            <version>1.6.0</version>
+            <version>${protostuff.version}</version>
         </dependency>
         <dependency>
             <groupId>io.protostuff</groupId>
             <artifactId>protostuff-runtime</artifactId>
-            <version>1.6.0</version>
+            <version>${protostuff.version}</version>
         </dependency>
         <!-- alibaba json -->
         <dependency>
