@@ -17,15 +17,13 @@
     <!-- 日志最大的历史 30天 -->
     <property name="log.maxHistory" value="30"/>
     <property name="log.level" value="debug"/>
-    <property name="log.maxSize" value="5MB" />
+    <property name="log.maxSize" value="5MB"/>
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %logger{30}:%L - %msg%n"/>
 
     <!-- ConsoleAppender 控制台输出日志 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>
-                <!-- 设置日志输出格式 -->
-                %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level]222 [%thread] %logger - %msg%n
-            </pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
@@ -55,10 +53,7 @@
             <MaxFileSize>${log.maxSize}</MaxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>
-                <!-- 设置日志输出格式 -->
-                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
-            </pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
@@ -83,7 +78,7 @@
             <MaxFileSize>${log.maxSize}</MaxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
@@ -101,7 +96,7 @@
             <MaxFileSize>${log.maxSize}</MaxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %logger - %msg%n</pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
@@ -119,7 +114,7 @@
             <MaxFileSize>${log.maxSize}</MaxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %logger - %msg%n</pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
@@ -137,7 +132,7 @@
             <MaxFileSize>${log.maxSize}</MaxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %logger - %msg%n</pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
@@ -150,11 +145,9 @@
             <MaxFileSize>${log.maxSize}</MaxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %logger - %msg%n</pattern>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
-
-
 
 
     <!--org.springframework.web包下的类的日志输出-->
@@ -162,11 +155,11 @@
         <appender-ref ref="WARN"/>
     </logger>
     <!--com.zgd包下的类的日志输出-->
-    <logger name="com.zgd" additivity="false" level="DEBUG" >
-        <appender-ref ref="app" />
-        <appender-ref ref="ERROR" />
+    <logger name="com.zgd" additivity="false" level="DEBUG">
+        <appender-ref ref="app"/>
+        <appender-ref ref="ERROR"/>
         <!--打印控制台-->
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- root级别   DEBUG -->
