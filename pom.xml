@@ -26,6 +26,7 @@
         <fastjson.version>1.2.73</fastjson.version>
         <reflections.version>0.9.10</reflections.version>
         <aspectj.version>1.8.9</aspectj.version>
+        <joor.version>0.9.6</joor.version>
     </properties>
 
     <dependencies>
@@ -108,24 +109,31 @@
             <artifactId>commons-collections4</artifactId>
             <version>${commons-collections4.version}</version>
         </dependency>
+        <!-- 反射框架 -->
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
             <version>${reflections.version}</version>
         </dependency>
-        <!-- aspectj -->
+        <!-- aspectj 切面 -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <!-- 反射工具 -->
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>joor</artifactId>
+            <version>${joor.version}</version>
+        </dependency>
+
 
     </dependencies>
 

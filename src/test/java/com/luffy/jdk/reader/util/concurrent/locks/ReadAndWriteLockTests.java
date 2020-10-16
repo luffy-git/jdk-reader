@@ -34,7 +34,7 @@ public class ReadAndWriteLockTests {
         final CountDownLatch latch = new CountDownLatch(count);
         // 初始化线程池
         final ExecutorService executor = Executors.newFixedThreadPool(10);
-        // 随机执行度操作和写操作
+        // 随机执行读操作和写操作
         IntStream.range(0,count).forEach(i -> executor.submit(new Random().nextBoolean() ? new Reader(latch) : new Writer(latch,i + "")));
         // 停止线程池
         executor.shutdown();
