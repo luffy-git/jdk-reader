@@ -1,9 +1,11 @@
 package com.luffy.jdk.reader.lang.thread;
 
+import com.luffy.jdk.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
@@ -33,7 +35,7 @@ public class ThreadLocalTest {
      */
     public String toBinary(int num, int digits) {
         int value = 1 << digits | num;
-        String bs = Integer.toBinaryString(value); //0x20 | 这个是为了保证这个string长度是6位数
+        String bs = Integer.toBinaryString(value); //0x20 | 这是为了保证这个string长度是6位数
         return  bs.substring(1);
     }
 
@@ -79,6 +81,60 @@ public class ThreadLocalTest {
         log.info(" start ");
         Thread.dumpStack();
         log.info(" end ");
+    }
+
+    private Thread t;
+
+    @Test
+    public void testThread() {
+        while (true){
+            new Thread(this::t).start();
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void t(){
+        if(null != t){
+            while (t.isAlive()){
+                log.info("停止");
+                t.interrupt();
+            }
+        }
+
+        t = new Thread(() -> {
+            while (true){
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                log.info(DateUtil.getCurrentDateTime().toString());
+                if (t.isInterrupted()){
+                    log.info("停止");
+                    t.interrupt();
+                }
+            }
+        });
+        t.start();
+    }
+
+    @Test
+    public void testThreadPool() throws InterruptedException {
+        Executors.newScheduledThreadPool(1).scheduleWithFixedDelay(() -> {
+            System.out.println("222");
+            try {
+                Thread.currentThread().setName("luffy-");
+                Thread.sleep(990);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }, 1, 1, TimeUnit.SECONDS);
+        TimeUnit.MINUTES.sleep(60);
     }
 
 }

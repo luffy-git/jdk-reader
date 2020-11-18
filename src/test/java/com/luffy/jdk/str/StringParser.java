@@ -1,5 +1,7 @@
 package com.luffy.jdk.str;
 
+import com.alibaba.fastjson.JSON;
+import com.sun.xml.internal.ws.api.server.AsyncProviderCallback;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.StringTokenizer;
 
 /**
@@ -20,8 +28,51 @@ public class StringParser {
 
     @Test
     public void testSplit(){
+        Optional<Boolean> aBoolean = Optional.of(System.currentTimeMillis() > 0L ).filter(f -> !f);
         log.info(parsePlugInName("neos.driver.modbus"));
+    }
 
+    @Test
+    public void testSplit2(){
+        log.info(Arrays.toString("aaa".split("_")));
+        log.info("aa_a".split("_").length + "");
+    }
+
+    @Test
+    public void testSingle(){
+        Optional
+                .of(t())
+                .filter(r -> !r)
+                .ifPresent(r -> System.out.println(r));
+    }
+
+    private Boolean t(){
+        return System.currentTimeMillis() > 0L;
+    }
+
+    public static class Service{
+        private Service(){
+            log.info("init");
+        }
+
+        private static Service service;
+
+        public static Service getInstance(AsyncProviderCallback<String> callback){
+
+            return Optional.ofNullable(service).filter(Objects::isNull).orElse(new Service());
+        }
+    }
+
+    @Test
+    public void testLocale(){
+        Locale locale = Locale.getDefault();
+        log.info(locale.getLanguage());
+        log.info(locale.getCountry());
+        log.info(locale.getDisplayCountry());
+        log.info(locale.getDisplayLanguage());
+        log.info(locale.getDisplayName());
+        log.info(locale.getScript());
+        log.info(locale.toString());
     }
 
     private String parsePlugInName(final String pack) {
@@ -48,9 +99,17 @@ public class StringParser {
     @Test
     public void testFiled(){
         // String name = Reflect.on(Class.forName(Student.class.getName()).getConstructor(String.class, Integer.class).newInstance("lizhimin", 18)).field("name").get();
-        long versionUID = Reflect.on(Student.class).create().field("serialVersionUID").get();
+        long versionUID = Reflect.on(com.luffy.jdk.protobuf.Student.class).create().field("serialVersionUID").get();
         log.info(versionUID + "");
         log.info((2 & 0xFFFF) + "");
+    }
+
+    @Test
+    public void testArray(){
+        String[] s = new String[]{"a","b"};
+        log.info(JSON.toJSONString(Arrays.asList(s)));
+        List<String> s2 = Collections.emptyList();
+        log.info(s2.contains("a") + "");
     }
 
     @Slf4j
@@ -71,5 +130,6 @@ public class StringParser {
             this.age = age;
             log.info("name : {}, age : {}", name, age);
         }
+
     }
 }

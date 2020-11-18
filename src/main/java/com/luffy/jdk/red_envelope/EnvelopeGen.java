@@ -77,6 +77,6 @@ public class EnvelopeGen {
         final BigDecimal money = new BigDecimal(10000);
         final int packet = 10;
         IntStream.range(1,20)
-                .forEach(i -> System.out.println(JSON.toJSONString(envelopes(money, packet))));
+                .forEach(i -> System.out.println("红包总金额:" + money + ",红包列表" +JSON.toJSONString(envelopes(money, packet))));
     }
 }
