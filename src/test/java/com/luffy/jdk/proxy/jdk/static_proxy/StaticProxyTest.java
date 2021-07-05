@@ -1,7 +1,7 @@
 package com.luffy.jdk.proxy.jdk.static_proxy;
 
 import com.luffy.jdk.proxy.common.UserMapper;
-import com.luffy.jdk.proxy.jdk.static_proxy.UserDaoProxy;
+import com.luffy.jdk.proxy.jdk.dynamic_proxy.DynamicProxyHandler2;
 import org.junit.jupiter.api.Test;
 
 
@@ -18,6 +18,15 @@ public class StaticProxyTest {
     public void staticProxy(){
         UserDaoProxy dao = new UserDaoProxy(new UserMapper());
         dao.save("luffy");
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(new DynamicProxyHandler2<>(AAA.class).proxy().b());
+    }
+
+    private static interface AAA{
+        String b();
     }
 
 }

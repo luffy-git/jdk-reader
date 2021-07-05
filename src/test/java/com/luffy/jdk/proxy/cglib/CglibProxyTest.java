@@ -24,4 +24,14 @@ public class CglibProxyTest {
         UserDao dao = new CglibProxy<>(new UserMapper()).proxy();
         dao.save("luffy");
     }
+    
+    @Test
+    public void test3(){
+        AAA proxy = new CglibProxy2<>(AAA.class).proxy();
+        System.out.println(proxy.b());
+    }
+    
+    private static interface AAA{
+        String b();
+    }
 }

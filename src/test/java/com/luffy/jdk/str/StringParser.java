@@ -1,7 +1,6 @@
 package com.luffy.jdk.str;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.xml.internal.ws.api.server.AsyncProviderCallback;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +13,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.StringTokenizer;
 
@@ -50,18 +48,6 @@ public class StringParser {
         return System.currentTimeMillis() > 0L;
     }
 
-    public static class Service{
-        private Service(){
-            log.info("init");
-        }
-
-        private static Service service;
-
-        public static Service getInstance(AsyncProviderCallback<String> callback){
-
-            return Optional.ofNullable(service).filter(Objects::isNull).orElse(new Service());
-        }
-    }
 
     @Test
     public void testLocale(){
@@ -131,5 +117,17 @@ public class StringParser {
             log.info("name : {}, age : {}", name, age);
         }
 
+    }
+
+    private static final Object lock = new Object();
+
+    @Test
+    public void testLock(){
+        synchronized (lock){
+            System.out.println("A");
+            synchronized (lock){
+                System.out.println("B");
+            }
+        }
     }
 }
